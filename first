@@ -1,0 +1,21 @@
+/***************************************
+* Автор:     Семенов М.В.              *
+* Дата:      25.09.2023                *
+* Название:  Первая программа на C++   *
+****************************************/
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main() {
+  double U = 220, R = 30, L = 0.65, f = 50, t = 0.01, phase = 280, pi = 3.14159, e = 2.71828, Ul, X, Y, cirfrequency, angle;
+  cirfrequency = 2 * pi * f;
+  angle = atan( (cirfrequency * L) / R);
+  Y = cos(angle) * sin(phase - angle) * pow(e, ( -(t * R) / L ));
+  X = sin(angle) * sin(cirfrequency * t + phase - angle + pi/2);
+  Ul = U * (X + Y);
+  cout << "Напряжение, возникающее на индуктивности = " << Ul << endl;
+  
+  return 0;
+}
