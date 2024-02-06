@@ -1,0 +1,32 @@
+using System;
+
+class Program {
+  static void Main() {
+    Console.WriteLine("Введите число");
+    int Number = Convert.ToInt32(Console.ReadLine());
+
+    Console.WriteLine("Введите степень числа");
+    int Pow = Convert.ToInt32(Console.ReadLine());
+    
+    Console.WriteLine("Введите число x, больше или равно 100");
+    int NumberX = Convert.ToInt32(Console.ReadLine());
+
+    if (NumberX < 100) {
+      Console.WriteLine("Число x должно быть больше или равно 100!");
+      return;
+    }
+    
+    int Result = Number, SecondDigit, FirstDigit, NumberN;
+
+    for (int NumberIndex = 1; NumberIndex < Pow; NumberIndex++) {
+      Result *= Number;
+    }
+    
+    SecondDigit = (NumberX / 10) % 10;
+    FirstDigit = NumberX / 100 * 10 + NumberX % 10;
+    NumberN = FirstDigit * 10 + SecondDigit;
+
+    Console.WriteLine($"{Number} в степени {Pow} = {Result}");
+    Console.WriteLine($"Число N: {NumberN}");
+  }
+}
